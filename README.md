@@ -24,7 +24,7 @@ nextflow run https://github.com/nextflow-hub/fastqc --trimmed
 ```
 - `resultsDir`
 
-**NOTE**: By default, it stores the result files locally into `results` directory.
+By default, it stores the result files locally into `results` directory.
 
 
 ## Contribution
