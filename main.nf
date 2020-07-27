@@ -1,13 +1,20 @@
 #!/usr/bin/env nextflow
 
 /*
-################
+#==============================================
+code documentation
+#==============================================
+*/
+
+
+/*
+#==============================================
 params
-################
+#==============================================
 */
 
 params.saveBy = 'copy'
-params.trimmed = true
+params.trimmed = false
 params.resultsDir = 'results/fastqc'
 
 
@@ -18,15 +25,14 @@ inputTrimmedRawFilePattern = "./*_{R1,R2}.p.fastq.gz"
 inputRawFilePattern = params.trimmed ? inputTrimmedRawFilePattern : inputUntrimmedRawFilePattern
 
 Channel.fromFilePairs(inputRawFilePattern)
-        .into { ch_in_fastqc }
+        .set { ch_in_fastqc }
 
 
 /*
-###############
+#==============================================
 fastqc
-###############
+#==============================================
 */
-
 
 process fastqc {
     publishDir params.resultsDir, mode: params.saveBy
@@ -50,4 +56,8 @@ process fastqc {
     """
 }
 
-
+/*
+#==============================================
+# extra
+#==============================================
+*/

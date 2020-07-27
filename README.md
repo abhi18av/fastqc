@@ -17,20 +17,15 @@ nextflow run https://github.com/nextflow-hub/fastqc
 
 - `trimmed` and `untrimmed` input files
 
-By default the pipeline assumes the files to follow the `*.p.fastq.gz` format. For untrimmed files i.e. `*.fastq.gz` pattern simply add the `trimmed` option as false.
+By default the pipeline assumes the files to follow the untrimmed `*.fastq.gz` format. For trimmed files i.e. `*.p.fastq.gz` pattern simply add the `trimmed` option.
 
 ```
-nextflow run https://github.com/nextflow-hub/fastqc --trimmed false
+nextflow run https://github.com/nextflow-hub/fastqc --trimmed 
 ```
 - `resultsDir`
 
-**NOTE**: By default, it stores the result files locally into `results/fastqc` directory.
+By default, it stores the result files locally into `results` directory.
 
-## Using MultiQC in pipelines
-
-- `multiQC` takes input files from `results/fastqc` and its default value is set to false. 
-
-**NOTE**: By default, it stores the result files locally into `results/multiqc` directory.
 
 ## Contribution
 
