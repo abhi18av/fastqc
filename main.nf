@@ -13,18 +13,11 @@ params
 #==============================================
 */
 
-params.saveBy = 'copy'
-params.trimmed = false
+params.saveMode = 'copy'
 params.resultsDir = 'results/fastqc'
+params.filePattern = "./*_{R1,R2}.fastq.gz"
 
-
-inputUntrimmedRawFilePattern = "./*_{R1,R2}.fastq.gz"
-
-inputTrimmedRawFilePattern = "./*_{R1,R2}.p.fastq.gz"
-
-inputRawFilePattern = params.trimmed ? inputTrimmedRawFilePattern : inputUntrimmedRawFilePattern
-
-Channel.fromFilePairs(inputRawFilePattern)
+Channel.fromFilePairs(params.filePattern)
         .set { ch_in_fastqc }
 
 
@@ -35,7 +28,7 @@ fastqc
 */
 
 process fastqc {
-    publishDir params.resultsDir, mode: params.saveBy
+    publishDir params.resultsDir, mode: params.saveMode
     container 'quay.io/biocontainers/fastqc:0.11.9--0'
 
 
