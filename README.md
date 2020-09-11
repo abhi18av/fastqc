@@ -18,10 +18,10 @@ nextflow run https://github.com/nextflow-hub/fastqc
 
 - `filePattern`
 
-By default, the process assumes the files to follow the `*_{R1,R2}.fastq.gz` pattern, which could be customized using this option
+By default, the process assumes the files to follow the `./*.fastq.gz` pattern, which could be customized using this option
 
 ```
-nextflow run https://github.com/nextflow-hub/fastqc --filePattern './*_{1,2}.fastq.gz'
+nextflow run https://github.com/nextflow-hub/fastqc --filePattern './path/to/custom/dir/*.fastq.gz'
 ```
 
 - `resultsDir`
